@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Generador de Intents Universal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       background-color: #121212;
@@ -49,7 +50,7 @@
     textarea {
       margin-top: 20px;
       width: 100%;
-      height: 250px;
+      height: 300px;
       border-radius: 8px;
       border: none;
       font-size: 14px;
@@ -69,7 +70,7 @@
         width: 100%;
       }
       textarea {
-        height: 180px;
+        height: 200px;
       }
     }
   </style>
@@ -108,22 +109,22 @@
       const idmIntent = `Intent:${url}#Intent;package=idm.internet.download.manager;scheme=https;end`;
 
       const codigo = `
-<a href="${webVideoIntent}" data-url="" target="_blank" rel="nofollow">
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
-    <path d="m160-800 80 160h120l-80-160h80l80 160h120l-80-160h80l80 160h120l-80-160h120q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800Zm0 240v320h640v-320H160Z"/>
-  </svg>
+<a href="${idmIntent}" target="_blank" rel="noopener noreferrer" class="flex items-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded text-white text-sm"> 
+  <i class="fas fa-download mr-2"></i> Descargar
 </a>
-
-<a href="${idmIntent}" data-url="" target="_blank" rel="nofollow">
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
-    <path d="M240-120v-80l40-40H160q-33 0-56.5-23.5T80-320v-440q0-33 23.5-56.5T160-840h320v80H160v440h640v-120h80v120q0 33-23.5 56.5T800-240H680l40 40v80H240Zm360-240L400-560l56-56 104 103v-327h80v327l104-103 56 56-200 200Z"/>
-  </svg>
+<a href="${webVideoIntent}" target="_blank" rel="noopener noreferrer" class="flex items-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded text-white text-sm"> 
+  <i class="fas fa-play mr-2"></i> Transmitir
+</a>
+<a href="https://paypal.me/LzRdrgz?country.x=SV&locale.x=es_XC" target="_blank" rel="noopener noreferrer" class="flex items-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded text-white text-sm"> 
+  <i class="fas fa-heart mr-2"></i> Apoyar
+</a>
+<a href="https://chat.whatsapp.com/DvrXOjWqJTPGYDT1KhASPR" target="_blank" rel="noopener noreferrer" class="flex items-center bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded text-white text-sm">
+  <i class="fas fa-flag mr-2"></i> WhatsApp
 </a>`.trim();
 
       const resultado = document.getElementById("resultado");
       resultado.value = codigo;
 
-      // Habilitar botón copiar
       document.getElementById("copiarBtn").disabled = false;
     }
 
@@ -132,7 +133,7 @@
       if (!resultado.value) return;
 
       resultado.select();
-      resultado.setSelectionRange(0, 99999); // Para móviles
+      resultado.setSelectionRange(0, 99999);
 
       try {
         navigator.clipboard.writeText(resultado.value);
